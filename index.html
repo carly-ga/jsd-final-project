@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Build HTML Lists for Email</title>
+		<meta name="description" content="Build Semantically Correct HTML Lists for Email">
+
+		<!-- css -->
+		<link rel="stylesheet" href="css/styles.css">
+		<link href="https://fonts.googleapis.com/css?family=Roboto+Mono:300,400|Roboto:400,500,700&display=swap" rel="stylesheet">
+	</head>
+	<body>
+
+		<header>
+			<h1>Bulletproof Bullets</h1>
+			<p>Build Semantically Correct HTML Lists for Email</p>
+		</header>
+
+		<section id="container">
+
+			<div id="wrapper">
+
+				<div id="input">
+					<h2>Build Your List</h2>
+					<form id="submit">
+						<h3>List Styles</h3>
+							<div id="styles">
+								<div>
+									<h4>List Marker</h4>
+									<select form="submit">
+										<option value="disc">&#x25CF;&nbsp; disc</option>
+										<option value="circle">&#x25CB;&nbsp; circle</option>
+										<option value="square">‎&#x25A0;&nbsp; square</option>
+										<option value="numeral">1.&nbsp; numeral</option>
+										<option value="upp-alph">A.&nbsp; uppercase alphabet</option>
+										<option value="low-alph">a.&nbsp; lowercase alphabet</option>
+									</select>
+								</div>
+								<div>
+									<h4>Left Indent</h4>
+									<input form="submit" name="indent" type="number" min="0" max="100" placeholder="0">&nbsp;px
+								</div>
+								<div>
+									<h4>Spacing Between List Items</h4>
+									<input form="submit" name="between" type="number" min="0" max="100" placeholder="0">&nbsp;px
+								</div>
+								<div>
+									<h4>Spacing Above & Below List</h4>
+									<input form="submit" name="outer" type="number" min="0" max="100" placeholder="0">&nbsp;px
+								</div>
+							</div>
+						<h3>Line Items</h3>
+							<div id="items">
+								<textarea rows="1" form="submit" placeholder="Start typing..." required="required" spellcheck="false" style="margin-top: 5px!important;"></textarea>
+								<textarea rows="1" form="submit" placeholder="Start typing..." spellcheck="false" class="increment"></textarea>
+								<textarea rows="1" form="submit" placeholder="Start typing..." spellcheck="false" class="increment"></textarea>
+							</div>
+						<div id="increment">
+							<div>&#43;</div>
+							<div>&#8722;</div>
+						</div>
+						<button>Submit</button>
+					</form>
+				</div>
+
+				<div id="output">
+					<h2>Copy Your Code</h2>
+					<h3>mso conditional</h3>
+					<textarea rows="7" readonly="readonly" spellcheck="false"><!--[if mso]><style type="text/css">ul {margin:0 !important;}li {margin-left:25px !important;}li.first {margin-top:0 !important;}li.last {margin-bottom:0 !important;}</style><![endif]--></textarea>
+					<h3>HTML</h3>
+					<textarea rows="8" readonly="readonly" spellcheck="false"><ul align="left" type="disc" style="margin:0; padding:0 0 0 25px;"><li style="margin:0 0 10px 0;" class="first"></li><li style="margin:0 0 10px 0;"></li><li style="margin:0;" class="last"></li></ul></textarea>
+				</div>
+
+			</div>
+
+		</section>
+
+		<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+		<script src="js/main.js"></script>
+
+	</body>
+</html>

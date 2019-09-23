@@ -22,10 +22,10 @@ A webpage that generates...
 
 Needs Statement:
 
-Because email clients are so inconsistent about list rendering, many email coders resort to simulating bullets with the &bull;&nbsp;&nbsp; method. However, the effect is lost if the text wraps, and the solution is less accessible than semantically correct lists.
+Because not all email clients render bulleted lists the same way, many email coders resort to simulating bullets with tables or symbols. However, these solutions are less accessible than semantically correct lists.
 
 
-<3 Inspired by Paul Airy & Campaign Monitor
+Inspired by Paul Airy & Campaign Monitor
 
 
 
