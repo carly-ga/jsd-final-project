@@ -29,84 +29,120 @@ $(function(){
 		event.preventDefault()
 		console.log('Form submitted')
 
-		// create array of list items, store in jquery variable $items
-		const $items = $('#items textarea')
 
-		// find total number of items
+
+		// log total number of items
 		const totalItems = $('#items textarea').length
-		console.log(`total items: ${totalItems}`)
+		console.log(`Total items: ${totalItems}`)
 
-		// create empty array for bare lis
+
+
+		// create variables for list styles
+		// log list styles
+		const listMarker = $('select')[0].value
+		console.log(`List marker: ${listMarker}`)
+
+		// call getStyle()
+		// inputs do not allow negative numbers
+		const indent = getStyle('indent')
+		console.log(`Left indent: ${indent}px`)
+
+		const spaceBetween = getStyle('spaceBetween')
+		console.log(`Space between items: ${spaceBetween}px`)
+
+		const spaceAboveBelow = getStyle('spaceAboveBelow')
+		console.log(`Space above and below list: ${spaceAboveBelow}px`)
+
+
+
+		// create empty array for bare li strings
 		const bareLis = []
 
-		$.each($items, function(index, itemObject) {
+		// create array of list items
+		// wrap each item in html li tag
+		// push each li tag, as a string, to emptsy bareLis array
+		const $items = $('#items textarea')
 
-			// extract item values
-			const item = itemObject.value
-			console.log(`item ${index}: ${item}`)
+		$.each($items, function(index, input) {
 
-			// wrap each item in html li tag
-			const itemHtml = `<li>${item}</li>`
+			const item = input.value.trim()
 
-			// push each li tag, as a string, to the empty bareLis array
-			bareLis.push(itemHtml)
+			if (item) {
+				console.log(`Item ${index + 1}: ${item}`)
+				const itemHtml = `<li>${item}</li>`
+				bareLis.push(itemHtml)
+			}
 
 		})
 
-		// join all li strings into one string
-		let itemsHtml = bareLis.join('')
+		// create array of true html li tags
+		let styledLis = bareLis.join('')
+		styledLis = $.parseHTML(styledLis)
 
-		// parse string into true html li tags
-		itemsHtml = $.parseHTML(itemsHtml)
 
-		// create global variable for space between list items using var
-		// input does not allow negative numbers
-		if ($('input[name="spaceBetween"]').val().length === 0) {
-			var spaceBetween = 0
-			console.log(`space between: ${spaceBetween}px`)
-		} else {
-			var spaceBetween = $('input[name="spaceBetween"]').val()
-			console.log(`space between: ${spaceBetween}px`)
-		}
 
 		// add bottom margins to all li tags
 		// creates space between list items
-		itemsHtml.forEach(function(item) {
-			item.style.margin = `0 0 ${spaceBetween}px`
+		styledLis.forEach(function(li) {
+			li.style.margin = `0 0 ${spaceBetween}px`
 		})
 
-		// manipulate last item
+		// style last item
 		// make bottom margin 0 - overrides gmail default
 		// add class 'last'
-		const lastItem = itemsHtml.pop()
-		lastItem.style.margin = 0
-		lastItem.className = 'last'
-		itemsHtml.push(lastItem)
+		const lastLi = styledLis.pop()
+		lastLi.style.margin = 0
+		lastLi.className = 'last'
+		styledLis.push(lastLi)
 
-		// manipulate first item
+		// style first item
 		// add class 'first'
-		const firstItem = itemsHtml.shift()
-		firstItem.className = 'first'
-		itemsHtml.unshift(firstItem)
+		const firstLi = styledLis.shift()
+		firstLi.className = 'first'
+		styledLis.unshift(firstLi)
 
-		console.log(itemsHtml)
 
-		// create empty array for styled lis
-		let styledLis = []
 
-		// push styled items to global array as strings
-		itemsHtml.forEach(function(item) {
-			styledLis.push(item.outerHTML)
+		// use listMarker variable to create list html
+		if (listMarker === '1' || listMarker === 'A' || listMarker === 'a') {
+			var html = '<ol align="left"></ol>'
+		} else {
+			var html = '<ul align="left"></ul>'
+		}
+
+		// create and style list html array
+		html = $.parseHTML(html)
+		html = html[0]
+		html.style.listStyleType = listMarker
+		html.style.padding = `0 0 0 ${indent}px`
+		html.style.margin = `${spaceAboveBelow}px 0`
+		if (indent === 0) {
+			html.style.listStylePosition = `inside`
+		}
+
+
+
+		// inject styledLis into list html array
+		styledLis.forEach(function(li) {
+			html.appendChild(li)
 		})
 
-		// join styled item strings into one string
-		styledLis = styledLis.join('')
-		console.log(styledLis)
+		// log and display output HTML
+		console.log(`HTML: ${html.outerHTML}`)
+		$('#output textarea:last').text(html.outerHTML)
+		
+
 
 	})
 
-
-
+	// get list styles
+	const getStyle = style => {
+		if ($("input[name=" + style + "]").val().length === 0) {
+			return 0
+		} else {
+			return $("input[name=" + style + "]").val()
+		}
+	}
 
 
 })
