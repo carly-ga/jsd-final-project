@@ -1,28 +1,13 @@
 # jsd-final-project
 
 
-Email List Generator!
+Bulletproof Lists!
 
 
-Abstract: 
-
-A webpage that generates...
-
-1) Simple, semantically correct HTML lists, with inline styling that works across major email and webmail clients:
-	-Apple Mail macOS, Apple Mail iOS
-	-Gmail: Safari, Firefox, Chrome, Explorer
-	-Yahoo! Mail: Safari, Firefox, Chrome, Explorer
-	-AOL Mail: Safari, Firefox, Chrome, Explorer
-	-Outlook.com: Safari, Firefox, Chrome, Explorer
-	-Outlook 2007, 2010, 2013, 2016: Explorer
-
-2) A Microsoft conditional comment that the user needs to include in their email head tag, to make the styles work in the Outlook desktop clients listed above.
+Generate simple, semantically correct HTML lists that render beautifully across major email and webmail clients.
 
 
-
-Needs Statement:
-
-Because not all email clients render bulleted lists the same way, many email coders resort to simulating bullets with tables or symbols. However, these solutions are less accessible than semantically correct lists.
+Why? Because not all email clients render bulleted lists the same way, many email coders resort to simulating bullets with tables or symbols. But these solutions are less accessible than semantically correct lists.
 
 
 Inspired by Paul Airy & Campaign Monitor

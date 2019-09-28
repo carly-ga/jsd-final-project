@@ -41,13 +41,13 @@ $(function(){
 
 		// call getStyle()
 		// inputs do not allow negative numbers
-		const indent = getStyle('indent')
+		const indent = getStyle('indent', 40)
 		console.log(`Left indent: ${indent}px`)
 
-		const spaceBetween = getStyle('spaceBetween')
+		const spaceBetween = getStyle('spaceBetween', 10)
 		console.log(`Space between items: ${spaceBetween}px`)
 
-		const spaceAboveBelow = getStyle('spaceAboveBelow')
+		const spaceAboveBelow = getStyle('spaceAboveBelow', 20)
 		console.log(`Space above and below list: ${spaceAboveBelow}px`)
 
 		/* -------------------------------- */
@@ -82,6 +82,8 @@ $(function(){
 		// creates space between list items
 		styledLis.forEach(function(li) {
 			li.style.margin = `0 0 ${spaceBetween}px`
+			li.style.textAlign = 'left'
+			console.log(li.style.textAlign)
 		})
 
 		// style last item
@@ -141,9 +143,9 @@ $(function(){
 
 
 	// get list styles
-	const getStyle = style => {
+	const getStyle = (style, fallback) => {
 		if ($("input[name=" + style + "]").val().length === 0) {
-			return 0
+			return fallback
 		} else {
 			return $("input[name=" + style + "]").val()
 		}
