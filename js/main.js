@@ -11,7 +11,6 @@ $(function(){
 	})
 
 
-
 	// click event to remove list item
 	$('#increment div:last').click(() => {
 
@@ -22,23 +21,21 @@ $(function(){
 	})
 
 
-
 	// submit event to run program
 	$('#submit').submit((event) => {
 
 		event.preventDefault()
 		console.log('Form submitted')
 
-
+		/* -------------------------------- */
 
 		// log total number of items
 		const totalItems = $('#items textarea').length
 		console.log(`Total items: ${totalItems}`)
 
-
+		/* -------------------------------- */
 
 		// create variables for list styles
-		// log list styles
 		const listMarker = $('select')[0].value
 		console.log(`List marker: ${listMarker}`)
 
@@ -53,7 +50,7 @@ $(function(){
 		const spaceAboveBelow = getStyle('spaceAboveBelow')
 		console.log(`Space above and below list: ${spaceAboveBelow}px`)
 
-
+		/* -------------------------------- */
 
 		// create empty array for bare li strings
 		const bareLis = []
@@ -79,7 +76,7 @@ $(function(){
 		let styledLis = bareLis.join('')
 		styledLis = $.parseHTML(styledLis)
 
-
+		/* -------------------------------- */
 
 		// add bottom margins to all li tags
 		// creates space between list items
@@ -101,16 +98,17 @@ $(function(){
 		firstLi.className = 'first'
 		styledLis.unshift(firstLi)
 
+		/* -------------------------------- */
 
-
-		// use listMarker variable to create list html
+		// create global listTag variable based on listMarker variable
 		if (listMarker === '1' || listMarker === 'A' || listMarker === 'a') {
-			var html = '<ol align="left"></ol>'
+			var listTag = 'ol'
 		} else {
-			var html = '<ul align="left"></ul>'
+			var listTag = 'ul'
 		}
 
 		// create and style list html array
+		let html = `<${listTag} align="left"></${listTag}>`
 		html = $.parseHTML(html)
 		html = html[0]
 		html.style.listStyleType = listMarker
@@ -120,7 +118,7 @@ $(function(){
 			html.style.listStylePosition = `inside`
 		}
 
-
+		/* -------------------------------- */
 
 		// inject styledLis into list html array
 		styledLis.forEach(function(li) {
@@ -128,12 +126,19 @@ $(function(){
 		})
 
 		// log and display output HTML
-		console.log(`HTML: ${html.outerHTML}`)
-		$('#output textarea:last').text(html.outerHTML)
-		
+		html = html.outerHTML
+		console.log(`HTML: ${html}`)
+		$('#output textarea:last').text(html)
 
+		/* -------------------------------- */
+
+		// log and display output mso
+		mso = `<!--[if mso]><style type="text/css">${listTag} {margin:0 !important;} li {margin-left:${indent}px !important;} li.first {margin-top:${spaceAboveBelow}px !important;} li.last {margin-bottom:${spaceAboveBelow}px !important;}</style><![endif]-->`
+		console.log(`mso: ${mso}`)
+		$('#output textarea:first').text(mso)
 
 	})
+
 
 	// get list styles
 	const getStyle = style => {
