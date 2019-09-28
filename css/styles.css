@@ -15,7 +15,7 @@ div#wrapper {
 	display: flex;
 }
 
-div#wrapper #input,  div#wrapper #output {
+div#wrapper #input, div#wrapper #output {
 	display: flex;
 	display: inline-block;
 }
@@ -54,6 +54,7 @@ section {
 
 button {
 	margin: 0 auto;
+	margin-top: 30px;
 	display: block;
 	border: 1px solid #303030;
 	padding: 8px 15px;
@@ -62,7 +63,6 @@ button {
 	color: #303030;
 	letter-spacing: 0.05em;
 	font-weight: 500;
-	margin-top: 20px;
 }
 
 textarea {

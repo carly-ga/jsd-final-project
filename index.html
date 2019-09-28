@@ -14,7 +14,7 @@
 	<body>
 
 		<header>
-			<h1>Bulletproof Bullets</h1>
+			<h1>Bulletproof Lists</h1>
 			<p>Build Semantically Correct HTML Lists for Email</p>
 		</header>
 
@@ -44,18 +44,17 @@
 								</div>
 								<div>
 									<h4>Spacing Between List Items</h4>
-									<input form="submit" name="between" type="number" min="0" max="100" placeholder="0">&nbsp;px
+									<input form="submit" name="spaceBetween" type="number" min="0" max="100" placeholder="0">&nbsp;px
 								</div>
 								<div>
 									<h4>Spacing Above & Below List</h4>
-									<input form="submit" name="outer" type="number" min="0" max="100" placeholder="0">&nbsp;px
+									<input form="submit" name="spaceAboveBelow" type="number" min="0" max="100" placeholder="0">&nbsp;px
 								</div>
 							</div>
 						<h3>Line Items</h3>
 							<div id="items">
 								<textarea rows="1" form="submit" placeholder="Start typing..." required="required" spellcheck="false" style="margin-top: 5px!important;"></textarea>
-								<textarea rows="1" form="submit" placeholder="Start typing..." spellcheck="false" class="increment"></textarea>
-								<textarea rows="1" form="submit" placeholder="Start typing..." spellcheck="false" class="increment"></textarea>
+								<textarea rows="1" form="submit" placeholder="Start typing..." required="required" spellcheck="false"></textarea>
 							</div>
 						<div id="increment">
 							<div>&#43;</div>
@@ -68,9 +67,9 @@
 				<div id="output">
 					<h2>Copy Your Code</h2>
 					<h3>mso conditional</h3>
-					<textarea rows="7" readonly="readonly" spellcheck="false"><!--[if mso]><style type="text/css">ul {margin:0 !important;}li {margin-left:25px !important;}li.first {margin-top:0 !important;}li.last {margin-bottom:0 !important;}</style><![endif]--></textarea>
+					<textarea rows="5" readonly="readonly" spellcheck="false"></textarea>
 					<h3>HTML</h3>
-					<textarea rows="8" readonly="readonly" spellcheck="false"><ul align="left" type="disc" style="margin:0; padding:0 0 0 25px;"><li style="margin:0 0 10px 0;" class="first"></li><li style="margin:0 0 10px 0;"></li><li style="margin:0;" class="last"></li></ul></textarea>
+					<textarea rows="5" readonly="readonly" spellcheck="false"></textarea>
 				</div>
 
 			</div>
