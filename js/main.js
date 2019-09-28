@@ -1,8 +1,5 @@
 $(function(){
 
-	const items = []
-	let styledItems = []
-
 
 	// click event to add list item
 	$('#increment div:first').click(() => {
@@ -14,14 +11,16 @@ $(function(){
 	})
 
 
+
 	// click event to remove list item
 	$('#increment div:last').click(() => {
 
 		// remove last textarea with class .increment
-		// first two textareas doe not have class .increment
+		// first two textareas do not have class .increment
 		$('div#items textarea.increment:last').remove()
 
 	})
+
 
 
 	// submit event to run program
@@ -30,12 +29,15 @@ $(function(){
 		event.preventDefault()
 		console.log('Form submitted')
 
-		// create object of list items, store in jquery variable $items
+		// create array of list items, store in jquery variable $items
 		const $items = $('#items textarea')
 
 		// find total number of items
 		const totalItems = $('#items textarea').length
 		console.log(`total items: ${totalItems}`)
+
+		// create empty array for bare lis
+		const bareLis = []
 
 		$.each($items, function(index, itemObject) {
 
@@ -43,21 +45,22 @@ $(function(){
 			const item = itemObject.value
 			console.log(`item ${index}: ${item}`)
 
-			// wrap items in html li tag
+			// wrap each item in html li tag
 			const itemHtml = `<li>${item}</li>`
 
-			// push li tag to the items array
-			items.push(itemHtml)
+			// push each li tag, as a string, to the empty bareLis array
+			bareLis.push(itemHtml)
 
 		})
 
 		// join all li strings into one string
-		let itemsHtml = items.join('')
+		let itemsHtml = bareLis.join('')
 
-		// parse string into real li tags
+		// parse string into true html li tags
 		itemsHtml = $.parseHTML(itemsHtml)
 
-		// create global variable for space between list items
+		// create global variable for space between list items using var
+		// input does not allow negative numbers
 		if ($('input[name="spaceBetween"]').val().length === 0) {
 			var spaceBetween = 0
 			console.log(`space between: ${spaceBetween}px`)
@@ -73,7 +76,7 @@ $(function(){
 		})
 
 		// manipulate last item
-		// make bottom margin 0 - overrides Gmail default styling
+		// make bottom margin 0 - overrides gmail default
 		// add class 'last'
 		const lastItem = itemsHtml.pop()
 		lastItem.style.margin = 0
@@ -88,16 +91,17 @@ $(function(){
 
 		console.log(itemsHtml)
 
+		// create empty array for styled lis
+		let styledLis = []
+
 		// push styled items to global array as strings
 		itemsHtml.forEach(function(item) {
-			styledItems.push(item.outerHTML)
+			styledLis.push(item.outerHTML)
 		})
 
 		// join styled item strings into one string
-		styledItems = styledItems.join('')
-		console.log(styledItems)
-
-		// SHOVE STYLEDITEMS INTO TEXTAREA #2
+		styledLis = styledLis.join('')
+		console.log(styledLis)
 
 	})
 
