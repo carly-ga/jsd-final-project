@@ -139,7 +139,7 @@ div#input textarea {
 
 button {
 	margin: 0 auto;
-	margin-top: 30px;
+	margin-top: 25px;
 	display: block;
 	border: 1px solid #303030;
 	padding: 8px 15px;
@@ -179,6 +179,65 @@ div#output textarea {
 	margin-bottom: 10px;
 	font-size: 13px;
 	font-style: italic;
+}
+
+
+
+@media only screen and (max-width: 750px)  {
+
+	header, section {
+		width: 95%;
+	}
+
+	div#wrapper, #input, #output {
+		width: 100%;
+		display: block;
+	}
+
+	div#output textarea {
+		width: 385px;
+	}
+
+	header {
+		margin: 25px auto 10px;
+		text-align: left;
+	}
+
+	h1 {
+		text-align: left;
+	}
+
+	h2 {
+		margin-top: 50px;
+	}
+
+	h3 {
+		margin-top: 15px !important;
+	}
+
+}
+
+@media only screen and (max-width: 425px)  {
+
+	textarea, form#submit {
+		width: 100% !important;
+	}
+
+	/* 4 list styles */
+	h4 {
+		margin: 20px 0 5px;
+		display: block;
+	}
+
+	/* 2 lower headers */
+	form>h3:nth-of-type(2), #output>h3:nth-of-type(2) {
+	    margin-top: 30px !important;
+	}
+
+	header p {
+		line-height: 1.5;
+	}
+
 }
 
 
