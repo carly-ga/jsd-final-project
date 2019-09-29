@@ -4,7 +4,7 @@ section {
 	display: block;
 	width: 700px;
 	margin: 0 auto;
-	margin-bottom: 60px;
+	margin-bottom: 30px;
 }
 
 div#wrapper {
@@ -40,12 +40,28 @@ p {
 	margin: 0;
 }
 
+a {
+	text-decoration: none;
+}
+
 textarea {
 	box-sizing: border-box;
 	resize: vertical;
 	font-family: 'Roboto Mono', monospace;
 	padding: 5px;
 	border-color: #d1d1d1;
+}
+
+footer {
+	text-align: center;
+	margin-bottom: 60px;
+	font-size: 13px;
+	line-height: 20px;
+	color: #d1d1d1;
+}
+
+footer a {
+	color: #d1d1d1;
 }
 
 

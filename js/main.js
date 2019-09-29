@@ -88,16 +88,16 @@ $(function(){
 
 		// style last item
 		// make bottom margin 0 - overrides gmail default
-		// add class 'last'
+		// add class 'lastListItem'
 		const lastLi = styledLis.pop()
 		lastLi.style.margin = 0
-		lastLi.className = 'last'
+		lastLi.className = 'lastListItem'
 		styledLis.push(lastLi)
 
 		// style first item
-		// add class 'first'
+		// add class 'firstListItem'
 		const firstLi = styledLis.shift()
-		firstLi.className = 'first'
+		firstLi.className = 'firstListItem'
 		styledLis.unshift(firstLi)
 
 		/* -------------------------------- */
@@ -135,7 +135,7 @@ $(function(){
 		/* -------------------------------- */
 
 		// log and display output mso
-		mso = `<!--[if mso]><style type="text/css">${listTag} {margin:0 !important;} li {margin-left:${indent}px !important;} li.first {margin-top:${spaceAboveBelow}px !important;} li.last {margin-bottom:${spaceAboveBelow}px !important;}</style><![endif]-->`
+		mso = `<!--[if mso]><style type="text/css">${listTag} {margin:0 !important;} li {margin-left:${indent}px !important;} li.firstListItem {margin-top:${spaceAboveBelow}px !important;} li.lastListItem {margin-bottom:${spaceAboveBelow}px !important;}</style><![endif]-->`
 		console.log(`mso: ${mso}`)
 		$('#output textarea:first').text(mso)
 
