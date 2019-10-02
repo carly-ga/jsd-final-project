@@ -21,6 +21,12 @@ $(function(){
 	})
 
 
+	// input event to resize input textareas to fit text
+	$('body').on('input', '#input textarea', function() {
+		$(this)[0].style.height = $(this)[0].scrollHeight + 'px'
+	})
+
+
 	// submit event to run program
 	$('#submit').submit((event) => {
 
@@ -83,7 +89,6 @@ $(function(){
 		styledLis.forEach(function(li) {
 			li.style.margin = `0 0 ${spaceBetween}px`
 			li.style.textAlign = 'left'
-			console.log(li.style.textAlign)
 		})
 
 		// style last item
@@ -131,6 +136,7 @@ $(function(){
 		html = html.outerHTML
 		console.log(`HTML: ${html}`)
 		$('#output textarea:last').text(html)
+		$('#output textarea:last')[0].style.height = $('#output textarea:last')[0].scrollHeight + 5 + 'px'
 
 		/* -------------------------------- */
 
@@ -138,6 +144,10 @@ $(function(){
 		mso = `<!--[if mso]><style type="text/css">${listTag} {margin:0 !important;} li {margin-left:${indent}px !important;} li.firstListItem {margin-top:${spaceAboveBelow}px !important;} li.lastListItem {margin-bottom:${spaceAboveBelow}px !important;}</style><![endif]-->`
 		console.log(`mso: ${mso}`)
 		$('#output textarea:first').text(mso)
+		$('#output textarea:first')[0].style.height = $('#output textarea:first')[0].scrollHeight + 5 + 'px'
+
+		/* -------------------------------- */
+
 
 	})
 

@@ -29,6 +29,7 @@ div#wrapper {
 
 /* body */
 body {
+	background-color: #ffffff;
 	text-align: left;
 	font-family: 'Roboto', sans-serif;
 	color: #303030;
@@ -154,6 +155,7 @@ div#input textarea {
 }
 
 button {
+	background-color: #ffffff;
 	margin: 0 auto;
 	margin-top: 25px;
 	display: block;
