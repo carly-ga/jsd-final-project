@@ -182,6 +182,13 @@ div#increment div {
 	font-weight: 500;
 }
 
+div#error {
+	margin: 10px auto!important;
+	text-align: center;
+	font-size: 14px;
+	color: red;
+}
+
 
 
 /* 2 output areas */
